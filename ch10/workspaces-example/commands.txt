@@ -1,0 +1,12 @@
+# To create a new workspace with name 'dev'
+terraform workspace new dev
+
+# To check the current workspace in context
+Option 1 - terraform workspace show
+Option 2 - terraform workspace list
+
+# To switch to different workspace (already created)
+terraform workspace select <workspace-name>
+
+# To delete a workspace
+terraform workspace delete <workspace-name>
