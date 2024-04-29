@@ -11,10 +11,10 @@ main.tf     - This is the main file where the child modules are getting called a
 
 Usage:
 Make sure you have cloned the repository. If not, run the following command:
-git clone https://github.com/PacktPublishing/Hashicorp-Certified-Terraform-Associate-003-Exam-guide-Second-Editon.git
+git clone https://github.com/PacktPublishing/Hashicorp-Certified-Terraform-Associate-003-Exam-guide-Second-Edition.git
 
 Navigate to the folder that has code related to the remote module:
-cd Hashicorp-Certified-Terraform-Associate-003-Exam-guide-Second-Editon/ch5/remote-child-module-example/
+cd Hashicorp-Certified-Terraform-Associate-003-Exam-guide-Second-Edition/ch5/remote-child-module-example/
 
 Initialize Terraform:
 terraform init

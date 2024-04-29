@@ -16,10 +16,10 @@ outputs.tf       - This has the code to get the output details of the resources 
 
 Usage:
 Make sure you have cloned the repository. If not, run the following command:
-git clone https://github.com/PacktPublishing/Hashicorp-Certified-Terraform-Associate-003-Exam-guide-Second-Editon.git
+git clone https://github.com/PacktPublishing/Hashicorp-Certified-Terraform-Associate-003-Exam-guide-Second-Edition.git
 
 Navigate to the folder that has code related to the local module:
-cd Hashicorp-Certified-Terraform-Associate-003-Exam-guide-Second-Editon/ch5/root-module-example/
+cd Hashicorp-Certified-Terraform-Associate-003-Exam-guide-Second-Edition/ch5/root-module-example/
 
 Initialize Terraform:
 terraform init
