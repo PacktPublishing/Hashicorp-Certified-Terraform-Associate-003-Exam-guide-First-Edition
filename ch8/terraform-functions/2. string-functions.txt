@@ -1,0 +1,292 @@
+String Functions
+
+split() function
+================
+The split() function will split the input string in all occurrences where the “separator” character is present. The resulting value will be of the type “list” and if we are using the output values to initialize any variable, the variable should be of the data type list.
+
+Syntax:
+split(separator-char, input-string)
+
+Examples:
+$ split("-", "test-dev-prod")
+> tolist([
+  "test",
+  "dev",
+  "prod",
+])
+$ split(",", "Adam,Bob,William")
+> tolist([
+  "Adam",
+  "Bob",
+  "William",
+])
+
+join() function
+================
+The join() function joins the string elements in the input list and produces the final string with the specified separator. If the separator character is not specified (just double quotes), then the list elements will be just concatenated.
+
+Syntax:
+join(separator-char, input-list)
+
+Examples:
+$ join("-", ["h", "e", "l", "l", "o"])
+> "h-e-l-l-o"
+$ join("", ["c", "a", "t"])
+> "cat"
+
+endswith() function
+===================
+The endswith() function will return either true or false based on whether the input string ends with the specified suffix string or not. The function takes two arguments.
+ 
+Syntax:
+endswith(input-string-1, suffix-string)
+
+Examples:
+$ endswith("test-app", "app")
+> true
+$ endswith("terraform-function", "func")
+> false
+
+startswith() function
+=====================
+The startswith() function will return either true or false based on whether the input string ends with the specified prefix string or not. The function takes two arguments. 
+
+Syntax:
+endswith(input-string-1, prefix-string)
+
+Examples:
+$ startswith("test-app", "test")
+> true
+$ startswith("terraform-function", "test")
+> false
+
+chomp() function
+================
+This function will be very helpful when you read strings from any file which has the newline characters at the end, and it takes only one argument. It does not remove the spaces at the end in the input string.
+
+Syntax:
+chomp("input-string")
+
+Examples:
+$ chomp("hello  \n\n")
+> "hello  "
+$ chomp("test string 01\n")
+> "test string 01"
+
+substr() function
+=================
+The substr() function extracts the part of the string which starts at the specified offset and length. The function takes three arguments which are input string, offset value (starts from 0) and the length.
+
+Syntax:
+substr(input-string, offset-value, length)
+
+Examples:
+$ substr("Adam Williamson", 5, 7)
+> "William"
+$ substr("input-string", 0, 2)
+> "in"
+
+strrev() function
+=================
+The strrev() function returns the reversed version of the input string and it takes one argument only which is the input string.
+
+Syntax:
+strrev(input-string)
+
+Examples:
+$ strrev("olleh")
+> “hello”
+$ strrev("string")
+> "gnirts"
+
+lower() function
+================
+This function converts the input string to lowercase.
+
+Syntax:
+lower(input-string) 
+
+Examples:
+$ lower("Language")
+> "language"
+$ lower("ALPHABETS")
+> "alphabets"
+
+upper() function
+================
+This function converts the input string to uppercase.
+
+Syntax:
+upper(input-string) 
+
+Examples:
+$ upper("document")
+> "DOCUMENT"
+$ upper("characters")
+> "CHARACTERS"
+
+trim() function
+================
+The trim() function will remove the characters specified in the second argument from the start and end of the input string. Here, every character in the second argument will be replaced individually and does not have to be an exact match in the input string.
+
+Syntax:
+trim(input-string, remove-chars)
+
+Examples:
+$ trim("football", "fl")
+> "ootba"
+$ trim("sports", "s")
+> "port"
+
+trimprefix() and trimsuffix() functions
+=======================================
+The trimprefix() and trimsuffix() functions will remove the specified prefix and suffix strings from the start and end of the strings respectively. If the input prefix/suffix is not present in the input string, the output value will be same with no change.
+
+Syntax:
+trimprefix(input-string, prefix-to-remove)
+trimsuffix(input-string, suffix-to-remove)
+
+Examples:
+$ trimprefix("bridge", "b")
+> "ridge"
+$ trimsuffix("baseball", "ball")
+> "base"
+$ trimprefix("universe", "one")
+> "universe"
+
+trimspace() function
+====================
+The trimspace() function will remove the newline characters from the start and end of the given string. This is different from the regular trim() function which will remove the specified characters. In this function, the newline characters mean "\n", "\r" and similar characters.
+
+Syntax:
+trimspace(input-string) 
+
+Examples:
+$ trimspace("\n\r test string\n")
+> "test string"
+$ trimspace("    terraform      \n    \r")
+> "terraform"
+
+indent() function
+=================
+The indent() function will be used to indent the strings in the specified multi-line string based on the input value except the first line.
+
+Syntax:
+indent(number-of-spaces, input-string)
+
+Examples:
+$ indent(2, "[\n  test-line-1,\n  test-line-2,\n]")
+> <<EOT
+[
+    test-line-1,
+    test-line-2,
+  ]
+EOT
+
+replace() function
+==================
+The replace() function is used to replace the specified character set from the input string with the replacement sequence provided. If the substring to be replaced is wrapped with forward slashes (“/”), then it is considered to be a regular expression.
+
+Syntax:
+replace(input-string, string-to-replace, replacement-chars)
+
+Examples:
+$ replace("This is a test string", " ", "-") 
+> "This-is-a-test-string"
+$ replace("There are ten players", "/t.*n/", "10") 
+> "There are 10 players"
+
+strcontains() function
+======================
+The strcontains() function will return either true or false based on whether the specified substring is present in the input string or not and this function takes two arguments only.
+
+Syntax:
+strcontains(input-string, string-to-search)
+
+Examples:
+$ strcontains("The game is on", "is")
+> true
+$ strcontains("Apple is Red", "white")
+> false
+
+title() function
+================
+This function will convert the first letter of each word in the specified input string to uppercase and it takes one argument only.
+
+Syntax:
+title(input-string)
+
+Examples:
+$ title("this is amazing")
+> "This Is Amazing"
+$ title("one two three")
+> "One Two Three"
+
+format() function
+=================
+The format() function is used to format the string with the specifications, and this is similar to the “printf” function in C language.
+
+Syntax:
+format(specification-string, input-string)
+For the specification string, some of the commonly used parameters are,
+* %s – for strings
+* %d – for numbers in decimal representation
+* %b – for numbers in binary representation
+* %f – for fraction notation
+
+Examples:
+$ format("%s has won the match", "Brazil")
+> "Brazil has won the match"
+$ format("Each team has %d players", 11)
+> "Each team has 11 players"
+$ format("The value of PI is %.2f", 3.14)
+> "The value of PI is 3.14"
+$ format("Binary value of 2 is %b", 2)
+> "Binary value of 2 is 10"
+
+formatlist() function
+=====================
+The formatlist() function uses the same syntax as the format function except that this function produces the list of strings with the specifications provided.
+
+Syntax:
+formatlist(specification-string, input-list-string)
+
+Examples:
+$ formatlist("%s is a vowel", ["a", "e", "i", "o", "u"])
+> tolist([
+  "a is a vowel",
+  "e is a vowel",
+  "i is a vowel",
+  "o is a vowel",
+  "u is a vowel",
+])
+
+regex() function
+================
+The regex() function applies a regular expression on the input string and returns any matching substrings as the output. If the regex expression does not match at all, the function will throw an error. If the pattern sequence itself starts with the backslash, another backslash must be added before to use inside the function. 
+
+Syntax:
+regex(regular-expression, input-string)
+Some of the commonly used regular expression sequences are: 
+* \d – any ASCII digits from 0 to 9
+* [a-z] – any character between a and z
+
+Examples:
+$ regex("\\d\\d",  "1234abc5678")
+> "12"
+$ regex("[a-z]",  "1234a5678")
+> "a"
+
+regexall() function
+===================
+The regexall() function uses the same syntax as the regex() function, but this function produces the list of matching strings.
+
+Syntax:
+regexall(regular-expression, input-string)
+
+Examples:
+$ regexall("[a-z]+", "ab123cd")
+> tolist([
+  "ab",
+  "cd",
+])

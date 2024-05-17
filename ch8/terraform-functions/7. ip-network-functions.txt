@@ -1,0 +1,40 @@
+IP network functions
+
+cidrhost() function
+===================
+The cidrhost() function returns the full IP address for a given host number within the given IP address prefix.
+The function will accept both the IPv4 and IPv6 prefixes.
+
+Example:
+$ cidrhost("192.168.1.1/16", 10)
+> "192.168.0.10"
+
+cidrnetmask() function
+======================
+The cidrnetmask() function converts the given IPv4 address prefix to a subnet mask address. This will throw an error if the IPv6 address prefix is given as input.
+
+Example:
+$ cidrnetmask("192.168.1.1/16")
+> "255.255.0.0"
+
+cidrsubnet() function
+=====================
+The cidrsubnet() calculates the subnet address for a given IP Address prefix and this function takes three arguments to extend the prefix. This function accepts IPv4 and IPv6 address prefixes.
+
+Syntax:
+cidrsubnet(prefix, new-range, net-num)
+
+Example :
+$ cidrsubnet("192.168.1.1/16", 4, 2)
+> "192.168.32.0/20"
+
+cidrsubnets() function
+======================
+This function returns the sequence of IP address ranges within the CIDR range.
+
+Example:
+$ cidrsubnets("192.168.1.1/16", 4, 4)
+> tolist([
+  "192.168.0.0/20",
+  "192.168.16.0/20",
+])

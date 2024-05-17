@@ -1,0 +1,61 @@
+Filesystem functions
+
+The function outputs for the examples in this section will be based on Windows OS and similar output is expected if you use a different operating system.
+For the below examples, create a file with name test.txt with the content as testfile before trying out these functions.
+
+abspath() function
+==================
+The abspath() function will convert the string with the file path to an absolute path.
+
+Example:
+$ abspath("/terraform")
+"C:/terraform"
+
+dirname() and basename() functions
+==================================
+The dirname() and basename() function will return the directory name removing the file name at the end if present. The behavior of the function will vary based on the operating system.
+
+Example:
+$ dirname("C:\\Users\\chandru\\test.txt")
+"C:\\Users\\chandru"
+$ basename("C:\\Users\\chandru\\test.txt")
+"test.txt"
+
+pathexpand() function
+=====================
+The pathexpand() function will expand the file path that might begin with a tilde symbol (~) and replace it with the HOME directory. If the HOME environment variable is not set, HOMEDRIVE or HOMEPATH value will be used and if that too not available, USERPROFILE value will be used to expand the path.
+
+Example:
+$ pathexpand("~")
+"C:\\Users\\chandru"
+
+file() and filebase64() functions
+=================================
+The file() and filebase64() functions read the contents of the given file and return it in regular string format and string encoded in base64 format respectively.
+
+Example:
+$ file("C:\\Users\\chandru\\test.txt")
+> "testfile"
+$ filebase64("C:\\Users\\chandru\\test.txt")
+> "dGVzdGZpbGU="
+
+fileexists() function
+=====================
+The fileexists() function returns true or false based on whether the file exists or not in the specified path.
+
+$ fileexists("C:\\Users\\chandru\\test.txt")
+> true
+
+fileset() function
+==================
+The fileset() function will return the set of file names matching the specified pattern. Please refer to the official documentation for more information on valid patterns.
+
+Syntax:
+fileset(path, match-pattern)
+
+templatefile() function
+=======================
+The templatefile() function is useful to read the template file and dynamically set the content of the file using the template variables.
+
+Syntax:
+templatefile(file-path, template-vars)

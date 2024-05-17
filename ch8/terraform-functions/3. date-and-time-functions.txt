@@ -1,0 +1,85 @@
+Date and time functions
+
+timestamp() function
+=====================
+The timestamp() function returns the current date and time in the UTC time zone format as per RFC 3339 specifications. This is the same format used internally by Terraform where the timestamps are used and hence this function also returns with the same syntax.
+
+Syntax:
+timestamp()
+
+Examples:
+$ timestamp()
+"2024-03-09T17:03:03Z" ("YYYY-MM-DDTHH:MM:SSZ")
+Note:- The output will vary based on when the function was tried out.
+
+formatdate() function
+=====================
+The formatdate() function converts the given timestamp into different date and time format. 
+
+The date and time format sequences which are commonly used are:
+* YYYY – Year in four digits
+* YY – Year in two digits
+* MMM – Month in abbreviated form like “Jan”, “Feb” etc.,
+* MM – Month in two digits
+* DD – Date in two digits with padding like “01”, “02” etc.,
+* D – Date without padding
+* HH – Hour in two digits with padding (12-hour format)
+* hh – Hour in two digits with padding (24-hour format)
+
+Syntax:
+formatdate(format, timestamp)
+
+Examples:
+$ formatdate("DD-MM-YYYY", timestamp())
+> "09-03-2024"
+$ formatdate("hh:mm", timestamp())
+> "17:15"
+Note:- The output will vary based on when the function was tried out.
+
+plantimestamp() function
+========================
+The plantimestamp() function is like the timestamp() function but the result of the function will change with every plan operation.
+This function is not available within the Terraform console and can be tested with a random terraform plan.
+
+Syntax:
+plantimestamp()
+
+timeadd() function
+==================
+The timeadd() function will return the new timestamp adding the duration specified with the input timestamp. It is possible that the duration parameter can contain negative values as well.
+
+The valid units are one of the following,
+* “ns” (nanoseconds) 
+* “us” or “µs” (microseconds)
+* “ms” (milliseconds)
+* “s” (seconds)
+* “m” (minutes) and 
+* “h” (hour)
+
+Syntax:
+timeadd(timestamp-value, duration)
+
+Examples:
+$ timeadd(timestamp(), "4h")
+> "2024-03-10T10:09:20Z"
+$ timeadd(timestamp(), "5m")
+> "2024-03-10T06:15:06Z"[KS95][CD96]
+Note:- The output will vary based on when the function was tried out.
+
+timecmp() function
+==================
+The timecmp() function compares the given timestamps and returns a number based on their ordering. This function accepts two timestamps only as arguments.
+
+Syntax:
+timecmp(timestamp-1, timestamp-2)
+If timestamp-1 < timestamp-2, then the return value will be -1.
+If timestamp-1 = timestamp-2, then the return value will be 0.
+If timestamp-1 > timestamp-2, then the return value will be 1.
+
+Examples:
+$ timecmp("2024-03-10T06:15:06Z", "2024-03-10T10:09:20Z")
+> -1
+$ timecmp("2024-03-10T10:09:20Z", "2024-03-10T10:09:20Z")
+> 0
+$ timecmp("2024-03-10T10:09:20Z", "2024-03-10T06:15:06Z")
+> 1

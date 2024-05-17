@@ -1,0 +1,79 @@
+Type conversion functions
+
+can() function
+==============
+The can() function is mainly used to validate if the expression will produce a valid result or not. If the valid result is possible, true is returned, otherwise false will be returned.
+
+Examples:
+$ can(anytrue([true, false]))
+> true
+$ can(one([1, 2]))
+> false
+Here, the anytrue function will always return a result so the can() output is true. In the second case, one() function will throw an error if the input list has more than one element, and hence, the function returns false.
+
+sensitive() and nonsensitive() functions
+========================================
+The sensitive() and nonsensitive() functions are used to create a copy of any value which will be marked as sensitive and non-sensitive respectively so Terraform can manage how to handle it.
+These can be used in situations where you want to mark any variable value marked as sensitive to a non-sensitive value to print it and vice versa.
+
+===>>>>>>>> Example in Terraform file main.tf in the same folder.  <<<<<<<<<=======
+
+try() function
+==============
+The try() function will take the argument expressions and return the first one that does not result in any error.
+
+Example:
+$ try(one([1,2]), ["1", "2"], [])
+[
+  "1",
+  "2",
+]
+
+type() function
+===============
+The type() function determines the type of the given value.
+
+Example:
+$ type(["1", "2"])
+> tuple([
+    string,
+    string,
+])
+$ type(true)
+> bool
+
+Conversion functions
+====================
+The following list of functions convert the input value from one type to another.
+* tobool()
+* tolist()
+* tomap()
+* tostring()
+* tonumber()
+* toset()
+
+Examples:
+$ tobool("true")
+> true
+$ tonumber("23")
+> 23
+$ tostring(100)
+> "100"
+$ toset(["1", "2", "3", "2"])
+> toset([
+  "1",
+  "2",
+  "3",
+])
+$ tomap({"one" = 1, "two" = 2})
+> tomap({
+  "one" = 1
+  "two" = 2
+})
+$ tolist(["a", "b", 1, true])
+> tolist([
+  "a",
+  "b",
+  "1",
+  "true",
+])

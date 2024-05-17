@@ -1,0 +1,84 @@
+Encoding functions
+
+base64encode() and base64decode() functions
+===========================================
+These functions can encode a given string in base64 format and decode a base64 encoded string and return the original string.
+
+Example:
+$ base64encode("This is a string")
+> "VGhpcyBpcyBhIHN0cmluZw=="
+$ base64decode("VGhpcyBpcyBhIHN0cmluZw==")
+> "This is a string"
+
+base64gzip() function
+=====================
+This function compresses the string with gzip and then encodes it with a base64 encoding.
+
+Example:
+$ base64gzip("This is a string")
+> "H4sIAAAAAAAA/wrJyCxWyCxWSFQoLinKzEsHAAAA//8BAAD//z9jdggQAAAA"
+
+csvdecode() function
+====================
+The csvdecode() function decodes the csv string and produces a list of maps. The first line is considered as header and the remaining lines are considered as data.
+
+Example:
+$ csvdecode("1,2\na, b\n")
+> tolist([
+  {
+    "1" = "a"
+    "2" = " b"
+  },
+])
+
+jsonencode() and jsondecode() functions
+=======================================
+The jsonencode() and jsondecode() functions are used to encode the given string into JSON syntax and vice versa.
+The Terraform types are converted to equivalent JSON types as per the predefined conversion rules.
+
+Example:
+$ jsonencode({"one" = 1, "two" = 2})
+> "{\"one\":1,\"two\":2}"
+$ jsondecode("{\"one\":1,\"two\":2}")
+{
+  "one" = 1
+  "two" = 2
+}
+
+textencodebase64() function
+===========================
+The textencodebase64() function encodes the given string using the specified encoding scheme.
+
+Example:
+$ textencodebase64("This is a string", "UTF-8")
+> "VGhpcyBpcyBhIHN0cmluZw=="
+$ textencodebase64("This is a string", "UTF-16")
+> "/v8AVABoAGkAcwAgAGkAcwAgAGEAIABzAHQAcgBpAG4AZw=="
+
+textdecodebase64() function
+===========================
+The textdecodebase64() function decodes the already encoded base64 string using the specified encoding scheme.
+
+Example:
+$ textdecodebase64("VGhpcyBpcyBhIHN0cmluZw==", "UTF-8")
+> "This is a string"
+urlencode() function
+The urlencode() function encodes the given string in the url encoding format.
+$ urlencode("test url/resource")
+> "test+url%2Fresource"
+
+yamlencode and yamldecode() functions
+=====================================
+The yamlencode() function encodes the given string using the YAML syntax and the yamldecode() function performs the opposite.
+
+Example:
+$ yamlencode({"one" = "1"})
+
+> <<EOT
+"one": "1"
+
+EOT
+$ yamldecode("one : 1")
+{
+  "one" = 1
+}

@@ -1,0 +1,129 @@
+Numeric functions
+
+abs() function
+==============
+The abs() function always returns the absolute value of the given number and it takes only one argument. If the input number is less than zero (0), the value will be multiplied by -1 and then returned. If the input number is greater than zero, the value will be returned with no changes.
+
+Syntax:
+abs(argument-1)
+
+Examples:
+
+$ abs(-5)
+> 5
+$ abs(100)
+> 100
+
+ceil() function
+===============
+The ceil() function will return the whole number which is greater than or equal to the input number. If the input number is a whole number already, the output will be the same number. If the input number is a fraction, the next closest whole number will be returned.
+
+Syntax:
+ceil(argument-1)
+
+Examples:
+$ ceil(7)
+> 7
+$ ceil(10.4)
+> 11
+
+floor() function
+================
+The floor() function will return the whole number which is lesser than or equal to the input number. If the input number is a whole number already, the output will be the same number. If the input number is a fraction, the previous closest whole number will be returned.
+
+Syntax:
+floor(argument-1)
+
+Examples:
+$ floor(11)
+> 11
+$ floor(8.8)
+> 8
+
+max() function
+==============
+The max() function will return the greatest number in the given inputs, and it can take any number of values as input. 
+
+Syntax:
+max(argument-1, argument-2)
+max([argument-1, argument-2]...)
+
+Examples:
+$ max(10, 59, 23, 68)
+> 68
+$ max([10, -2, 3, 15]...)
+> 15
+$ max([10, -2, 3, 15])  --- without the three dots
+> Error: Invalid function argument
+?
+?   on <console-input> line 1:
+?   (source code not available)
+?
+? Invalid value for "numbers" parameter: number required.
+
+min() function
+==============
+The min() function will return the smallest number in the given inputs, and it can take any number of values as input. 
+
+Syntax:
+min(argument-1, argument-2)
+min([argument-1, argument-2]...)
+
+Examples:
+$ min(-2, 5, 11, 1)
+> -2
+$ min([13, 22, 76, 99]...)[KS32][CD33][CD34]
+> 13
+
+pow() function
+==============
+The pow() function will result the exponent value based on the input arguments. The first argument will be raised to the power of the second argument, and it always accepts two arguments only. 
+
+Syntax:
+pow(argument-1, power-of-argument-2)
+
+Examples:
+$ pow(2, 2)
+> 4
+$ pow(17, 0)
+> 1
+
+log() function
+==============
+This function returns the logarithm of a given number and it takes two arguments. The first argument is the number, and the second argument is the base.
+
+Syntax:
+log(number-argument-1, base-argument-2)
+
+Examples:
+$ log(44,2)
+> 5.459431618637297
+
+signum() function
+=================
+The signum() function will return the sign of the given number and the value will be between -1 and 1. If the input number is negative, then -1 will be returned and the return value will be 1 in case of positive number. This function will return zero if the input value is zero (0).
+
+Syntax:
+signum(number-argument-1)
+
+Examples:
+$ signum(34)
+> 1
+$ signum(0)
+> 0
+$ signum(-24)
+> -1
+
+parseint() function
+====================
+The parseint() function will return the number parsing the string representation of the input value in the specified base. The first argument is the input value in string format and the second argument is the base. The limitation of this function is that the base can only be between the values 2 and 62.
+If the input value cannot be parsed with the specified base, the function will return error.
+
+Syntax:
+parseint(input-argument-1, base-argument-2)
+
+Examples:
+$ parseint("10110", 2)
+> 22
+$ parseint("EDA1", 16)
+> 60833
