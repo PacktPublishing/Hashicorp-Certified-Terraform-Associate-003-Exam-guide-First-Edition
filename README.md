@@ -1,1 +1,1 @@
-# HashiCorp-Infrastructure-Automation-Certification-Guide-Second-Editon
+# HashiCorp-Infrastructure-Automation-Certification-Guide-Second-Edition
